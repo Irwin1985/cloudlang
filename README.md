@@ -2,7 +2,7 @@
 
 <hr>
 
-##cloudlib.prg
+## cloudlib.prg
 This is the Visual Foxpro interface to interop with clouldlang service.
 
 Example: the following gets the service version.
@@ -38,3 +38,10 @@ myJson = cloudlib_parseJSON(lcJsonStr)
 ```
 
 ## What is an Entry?
+
+The example above showed some helper properties like `entry1, item1, key and value`, let's explain each of them:
+
+1. Entry: this is a special object that holds your json pair `key-value`, your result object will have as many entries as your JSON data contain. This object let you examine either the `key` or `value` by typing: `object.entry1.key` or `object.entry1.value`.
+2. Item: this is a representation of an array's elements. You must inspect each element by typing: `object.entry1.item1`
+3. Key: the key of your `key-value` pair.
+4. Value: the actual value of your `key-value` pair.
