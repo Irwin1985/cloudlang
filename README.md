@@ -1,7 +1,9 @@
 # CloudLang
 
 <hr>
-**cloudlib.prg** this is the Visual Foxpro interface to interop with clouldlang service.
+
+##cloudlib.prg
+This is the Visual Foxpro interface to interop with clouldlang service.
 
 Example: the following gets the service version.
 
