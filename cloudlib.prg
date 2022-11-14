@@ -1,3 +1,5 @@
+
+
 * ============================================================================= *
 * PROGRAMA....: CLOUDLIB.PRG
 * VERSION....: 0.0.1
@@ -23,12 +25,15 @@ Endfunc
 Function cloudlib_version
 	Local lcResponse, loRegEx, loMatch, loGroups
 	lcResponse = _cloudlib_http_request("GET", "version", "")
+	If Empty(lcResponse)
+		Return ''
+	EndIf
 	* Extract the version using RegEx.
 	loRegEx = Createobject("VBScript.RegExp")
 	loRegEx.IgnoreCase = .T.
 	loRegEx.Global = .T.
 	loRegEx.Pattern = '("version":)("[^"]+")'
-	loMatch = oRegEx.Execute(lcResponse)
+	loMatch = loRegEx.Execute(lcResponse)
 	If Type('loMatch') == 'O'
 		loSubMatch = loMatch.Item[0]
 		loGroups   = loSubMatch.SubMatches
